@@ -92,6 +92,11 @@ const movies = [
     poster: 'https://i.imgur.com/ejlIijD.jpg',
     genre: 'Comedy',
   },
+  {
+    title: 'Lego Batman',
+    poster: 'http://lichchieuphimcgv.com/wp-content/uploads/2017/01/lego_batman-240x355_1.jpg',
+    genre: 'Comedy, Cartoon',
+  },
 ];
 
 // Connect to MongoDB

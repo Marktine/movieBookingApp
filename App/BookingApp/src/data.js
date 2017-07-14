@@ -132,4 +132,11 @@ export const movies = [
     days,
     times,
   },
+  {
+    title: 'Lego Batman',
+    poster: 'https://i.imgur.com/NhUy12V.jpg',
+    genre: 'Comedy, Cartoon',
+    days,
+    times,
+  },
 ];

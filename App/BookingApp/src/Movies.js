@@ -7,12 +7,13 @@ import {
 } from 'react-native';
 import MoviePoster from './MoviePoster';
 import MoviePopup from './MoviePopup';
-import {movies} from './data';
 
 export default class Movies extends Component{
 
 	state={
 		popupIsOpen: false,
+
+		movies: [],
 
 		//Chosen time
 		chosenTime: 0,
@@ -20,6 +21,19 @@ export default class Movies extends Component{
 		chosenDay: null,
 	}
 
+
+	componentDidMount() {
+		return fetch('http://localhost:3000/v1/movies.json')
+				.then((res) => res.json())
+				.then((resJson) => {
+					this.setState({
+						movies: resJson.movies,
+					});
+				});
+	}
+
+	
+	
 	openMovie = (movie) => {
 		this.setState({
 			popupIsOpen: true,
@@ -66,7 +80,7 @@ export default class Movies extends Component{
 				<ScrollView contentContainerStyle={styles.scrollContent}
 							showHorizontalScrollIndicator={false}
 							showVerticalScrollIndicator={false}>
-					{movies.map((movie, index) => <MoviePoster
+					{this.state.movies.map((movie, index) => <MoviePoster
 														movie = {movie}
 														onOpen = {this.openMovie}
 														key = {index}
